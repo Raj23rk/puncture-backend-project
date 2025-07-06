@@ -1,0 +1,32 @@
+name: 🚀 Puncture Backend CI
+
+on:
+  push:
+    branches: [dev]         # 👈 Change from main to dev
+  pull_request:
+    branches: [dev]         # 👈 Change from main to dev
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: ✅ Run tests (if available)
+        run: echo "No tests yet" # Replace with: npm test
+
+      - name: ✅ Lint (optional)
+        run: echo "No lint script yet"
+
+      - name: 🏁 Build success
+        run: echo "CI Pipeline Passed 🎉"
